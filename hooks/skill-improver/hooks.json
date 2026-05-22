@@ -1,0 +1,16 @@
+{
+  "description": "Skill Improver stop hook for iterative skill improvement loop",
+  "hooks": {
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"${CLAUDE_PLUGIN_ROOT}/hooks/stop-hook.js\"",
+            "timeout": 30
+          }
+        ]
+      }
+    ]
+  }
+}
