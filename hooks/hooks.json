@@ -33,6 +33,16 @@
         "description": "Reminder before git push to review changes"
       },
       {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"${CLAUDE_PLUGIN_ROOT}/scripts/hooks/rhizome-advisory.js\""
+          }
+        ],
+        "description": "Rhizome advisory: warn when Bash is used for code navigation instead of Rhizome MCP tools (exit 0, advisory only)"
+      },
+      {
         "matcher": "Write",
         "hooks": [
           {
