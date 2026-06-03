@@ -33,3 +33,13 @@ hyphae search --query "errors" -P $(basename $(git rev-parse --show-toplevel 2>/
 ## Graceful Degradation
 
 If hyphae is not available, proceed without context check. These searches are optional enrichment — never block work on hyphae availability.
+
+## Scope Guard
+
+A recalled memory reflects what was true when it was written — it can be stale.
+
+Before using any recalled identifier, path, symbol, flag, config key, or numeric value in a file edit, a write, a commit, or any other mutation, re-verify it against current live state where a live check is feasible:
+
+- Read the file, grep the symbol, or check the value before copying it through.
+- If the recalled value disagrees with live state, trust live state and note the discrepancy.
+- Prefer a live check over high-confidence recall when the recalled value will drive a mutation; if a live check is not feasible, proceed with caution and flag the assumption.
