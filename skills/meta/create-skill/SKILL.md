@@ -61,6 +61,17 @@ A **skill** is a reference guide for proven techniques, patterns, or tools. Skil
 - Standard practices well-documented elsewhere
 - Project-specific conventions (put in CLAUDE.md)
 
+### Before creating: check for overlap
+
+Before writing a new skill, scan the existing catalog (search skill names and `description` fields for the technique, the tool, and the problem) and classify what you find:
+
+- **Full overlap** — existing skill already covers this → **reuse** it; do not create.
+- **Partial overlap, generalizable** — existing skill is close and could absorb this *without blurring its single responsibility* → **extend** the existing skill. If absorbing this would make that skill vague or grab-bag, do not extend — treat it as specialization below.
+- **Intentional specialization** — overlap exists but a distinct, narrower skill is warranted *and still meets the "Create when" bar above* (broadly reusable, not a one-off) → **create new**, and note how it differs in its `description`.
+- **No overlap** — nothing covers this → **create new**.
+
+The bias runs both ways: don't extend a focused skill into a grab-bag, and don't spin off a narrow skill that has no reuse value on its own.
+
 ## Skill Types
 
 | Type | Description | Examples |
