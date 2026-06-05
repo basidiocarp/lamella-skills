@@ -378,6 +378,11 @@ export interface UserPromptSubmitResponse extends BaseHookResponse {
 export interface PreCompactResponse extends BaseHookResponse {
   decision?: 'approve' | 'block'
   reason?: string
+  systemMessage?: string
+  hookSpecificOutput?: {
+    hookEventName: 'PreCompact'
+    additionalContext?: string
+  }
 }
 
 // SessionStart specific response

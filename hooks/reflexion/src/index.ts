@@ -3,7 +3,6 @@
 import type {
   NotificationHandler,
   PostToolUseHandler,
-  PreCompactHandler,
   PreToolUseHandler,
   SessionStartHandler,
   SubagentStopHandler,
@@ -11,6 +10,7 @@ import type {
 } from './lib'
 import {runHook, log} from './lib'
 import { stop } from './onStopHandler'
+import { preCompact } from './onPreCompactHandler'
 
 // SessionStart handler - called when a new Claude session starts
 const sessionStart: SessionStartHandler = async (payload) => {
@@ -117,23 +117,6 @@ const userPromptSubmit: UserPromptSubmitHandler = async (payload) => {
   return {}
 }
 
-// PreCompact handler - called before Claude compacts the conversation
-const preCompact: PreCompactHandler = async (payload) => {
-
-  // Example: Log compact events
-  log(`🗜️  Compact triggered: ${payload.trigger}`)
-
-  // Example: Block automatic compaction during critical operations
-  if (payload.trigger === 'auto') {
-    // You could check if critical operations are in progress
-    // For now, we'll allow all compactions
-    log('📋 Allowing automatic compaction')
-  }
-
-  // Add your custom compaction logic here
-
-  return {} // Empty object means allow compaction
-}
 
 const main = (): void => {
   // Run the hook with our handlers
