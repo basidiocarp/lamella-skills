@@ -1,9 +1,7 @@
-#!/usr/bin/env bun
-
-import * as fs from 'fs'
-import { readFileSync } from 'fs'
-import * as readline from 'readline'
-import { saveSessionData, SessionData } from './session'
+import * as fs from 'node:fs'
+import { readFileSync } from 'node:fs'
+import * as readline from 'node:readline'
+import { saveSessionData, type SessionData } from './session.ts'
 
 // Transcript message types
 export interface TranscriptSummary {

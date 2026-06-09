@@ -26,9 +26,12 @@ Flow:
 
 ## Installation
 
+The hook runs on Node's native TypeScript type stripping and needs no runtime
+dependencies. Install dev dependencies only if you want to run the tests:
+
 ```bash
 cd lamella/resources/hooks/reflexion
-bun install
+npm install
 ```
 
 ## Usage
@@ -61,8 +64,8 @@ With `DEBUG=true`, hook responses include session data for debugging.
 ### Running Locally
 
 ```bash
-bun run src/index.ts Stop
-bun run src/index.ts UserPromptSubmit
+node run-hook.js Stop
+node run-hook.js UserPromptSubmit
 ```
 
 ### Testing
@@ -76,7 +79,7 @@ npm test
 ### Hook not triggering
 
 Check that:
-- Bun is installed
+- Node.js >= 22.6 is installed (native TypeScript type stripping; on by default at >= 23.6)
 - `hooks.json` is valid
 - `reflect` appears as a standalone word
 

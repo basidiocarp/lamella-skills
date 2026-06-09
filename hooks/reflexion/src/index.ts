@@ -1,5 +1,3 @@
-#!/usr/bin/env bun
-
 import type {
   NotificationHandler,
   PostToolUseHandler,
@@ -7,10 +5,10 @@ import type {
   SessionStartHandler,
   SubagentStopHandler,
   UserPromptSubmitHandler,
-} from './lib'
-import {runHook, log} from './lib'
-import { stop } from './onStopHandler'
-import { preCompact } from './onPreCompactHandler'
+} from './lib.ts'
+import {runHook, log} from './lib.ts'
+import { stop } from './onStopHandler.ts'
+import { preCompact } from './onPreCompactHandler.ts'
 
 // SessionStart handler - called when a new Claude session starts
 const sessionStart: SessionStartHandler = async (payload) => {

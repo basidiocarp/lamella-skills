@@ -1,6 +1,5 @@
 {
   "name": "reflexion-hooks",
-  "module": "index.ts",
   "type": "module",
   "scripts": {
     "test": "vitest run",
@@ -9,7 +8,6 @@
   },
   "devDependencies": {
     "@types/node": "^24.8.1",
-    "bun-types": "latest",
     "vitest": "^3.2.4"
   },
   "peerDependencies": {

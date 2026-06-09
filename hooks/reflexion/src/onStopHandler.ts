@@ -1,4 +1,4 @@
-import { UserPromptSubmitPayload, type StopHandler } from "./lib"
+import { type UserPromptSubmitPayload, type StopHandler } from "./lib.ts"
 
 const TRIGGER_WORD = "reflect"
 const DEFAULT_REFLECT_PROMPT = "You MUST use Skill tool to execute the command /reflexion:reflect"

@@ -1,7 +1,7 @@
 import {mkdir, readFile, writeFile} from 'node:fs/promises'
 import {tmpdir} from 'node:os'
 import * as path from 'node:path'
-import type {HookPayload} from './lib'
+import type {HookPayload} from './lib.ts'
 
 const SESSIONS_DIR = path.join(tmpdir(), 'claude-hooks-sessions')
 
