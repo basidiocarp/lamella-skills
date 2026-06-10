@@ -37,6 +37,16 @@
         "hooks": [
           {
             "type": "command",
+            "command": "node -e \"let d='';process.stdin.on('data',c=>d+=c);process.stdin.on('end',()=>{try{const i=JSON.parse(d);const cmd=i.tool_input?.command||'';if(!/\\bgit\\b[^|;&]*\\bcommit\\b/.test(cmd)){console.log(d);return}let diff='';try{diff=require('child_process').execSync('git diff --cached --no-color -U0',{encoding:'utf8'})}catch(e){console.log(d);return}if(!diff){console.log(d);return}const rules=[{re:/gh[pousr]_[A-Za-z0-9]{36}/g,name:'GitHub token'},{re:/-----BEGIN (?:RSA |EC |OPENSSH |DSA |PGP )?PRIVATE KEY-----/g,name:'private key'},{re:/AKIA[0-9A-Z]{16}/g,name:'AWS access key',excl:['AKIAIOSFODNN7EXAMPLE']}];for(const r of rules){for(const m of diff.matchAll(r.re)){if(r.excl&&r.excl.includes(m[0])){continue}process.stdout.write(JSON.stringify({hookSpecificOutput:{hookEventName:'PreToolUse',permissionDecision:'deny',permissionDecisionReason:r.name+' detected in staged changes (value redacted) \\u2014 unstage or remove the secret before committing.'}}));return}}console.log(d);return}catch{}console.log(d)})\""
+          }
+        ],
+        "description": "Block git commit when staged changes contain a high-confidence secret"
+      },
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
             "command": "node \"${CLAUDE_PLUGIN_ROOT}/scripts/hooks/rhizome-advisory.js\""
           }
         ],
